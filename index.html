@@ -1,11 +1,40 @@
 <!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ЦЕХ-84 — мебель из массива на заказ</title>
-  <meta http-equiv="refresh" content="0; url=https://ceh84-atelier.jessegarcia2053379.chatgpt.site/">
-  <link rel="canonical" href="https://ceh84-atelier.jessegarcia2053379.chatgpt.site/">
-</head>
-<body><a href="https://ceh84-atelier.jessegarcia2053379.chatgpt.site/">Открыть сайт мастерской ЦЕХ-84</a></body>
-</html>
+<html lang="ru"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ЦЕХ-84 — мебель из массива на заказ</title><meta name="description" content="Столярная мастерская Антона. Мебель и лестницы по вашим размерам. Минск и Москва."><base href="./public/"><link rel="icon" href="./img/logo.png"><link rel="stylesheet" href="./style.css"><body>
+<header><a class="brand" href="#top"><img src="./img/logo.png" alt=""><strong>ЦЕХ–84</strong></a><span class="cities">Минск / Москва</span><nav><a href="#works">Работы</a><a href="#master">Мастер</a></nav><a class="black header-cta" href="#request">Обсудить проект</a></header>
+<main id="top"><section class="hero"><div class="hero-photo"></div><div class="hero-copy"><h1>Мебель<br>из массива</h1><p>По вашим размерам и эскизам.</p><div class="actions"><a class="white" href="https://ig.me/m/ceh_84" target="_blank" rel="noopener">Написать в Instagram <span>↗</span></a><a class="outline" href="#request">Оставить заявку</a></div></div></section>
+<section id="works" class="section"><h2>Работы мастерской</h2><div id="gallery"></div></section>
+<section id="master" class="section master"><img class="master-portrait" src="./img/anton.webp" alt="Антон сидит в деревянном кресле" loading="lazy"><div class="master-name"><p class="small">Ваш мастер</p><h2>Антон</h2><svg class="master-arrow" viewBox="0 0 124 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M120 4 C104 28 54 44 5 20 M10 33 L5 20 L20 18"/></svg></div><div class="master-story"><p>Делаю мебель из натурального дерева. За основу можно взять эскиз, фотографию из Pinterest или одну из моих работ.</p><p>В Instagram показываю, как идёт работа над заказами.</p><a href="https://www.instagram.com/ceh_84/" target="_blank" rel="noopener">@ceh_84 ↗</a></div><figure class="master-detail"><img src="./img/slab-cutout.webp" alt="Рисунок годовых колец и естественная кромка журнального стола" loading="lazy"></figure></section>
+<section id="request" class="section request"><div><p class="small">Расчёт стоимости</p><h2>Обсудим<br>ваш проект?</h2><p>Расскажите, что хотите сделать. Если знаете примерные размеры, укажите их в заявке.</p><a class="white" href="https://ig.me/m/ceh_84" target="_blank" rel="noopener">Написать в Instagram ↗</a></div><form><label>Как к вам обращаться<input required name="name" autocomplete="name" maxlength="100"></label><label>Телефон, email или ник в Instagram<input required name="contact" maxlength="200"></label><label>Что хотите заказать?<textarea required name="project" rows="3" maxlength="3000" placeholder="Например, обеденный стол 180 × 90 см"></textarea></label><button class="white">Отправить заявку ↗</button><p role="status" id="status">Демо-форма. Заявки не отправляются.</p></form></section></main>
+<footer><b>ЦЕХ–84</b><span>Минск / Москва</span><a href="tel:+375298216511">+375 29 821-65-11</a></footer>
+<dialog aria-label="Просмотр работы"><button id="close" aria-label="Закрыть">×</button><img id="large" alt=""></dialog><script>const works = [
+  ['armchair', 'Кресло с мягким сиденьем'],
+  ['spiral-stairs', 'Винтовая лестница'],
+  ['table', 'Стол на фигурных опорах'],
+  ['river-table', 'Стол-река'],
+  ['cabinet', 'Шкаф с фактурными фасадами']
+];
+const gallery = document.querySelector('#gallery');
+const dialog = document.querySelector('dialog');
+const large = document.querySelector('#large');
+
+for (const [slug, title] of works) {
+  const tile = document.createElement('button');
+  const photo = new Image();
+  tile.className = 'tile';
+  photo.src = './img/' + slug + '.webp';
+  photo.alt = title;
+  photo.loading = 'lazy';
+  tile.append(photo);
+  gallery.append(tile);
+  tile.onclick = () => {
+    large.src = photo.src;
+    large.alt = title;
+    dialog.showModal();
+  };
+}
+document.querySelector('#close').onclick=()=>dialog.close();
+dialog.onclick=e=>{if(e.target===dialog) dialog.close()};
+document.querySelector('form').onsubmit = event => { event.preventDefault(); document.querySelector('#status').textContent = 'Демо-форма. Заявки не отправляются.'; };</script></body></html>
+
+
+
